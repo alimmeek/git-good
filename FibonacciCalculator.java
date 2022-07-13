@@ -1,8 +1,12 @@
 public class FibonacciCalculator {
-	public int calculate(int n) {
-		if (n <=0 || n == 1) {
-			return n;
+	private int fib(int term, int val, int prev) {
+		if (term == 0) {
+			return prev;
 		}
-		return calculate(n - 1) + calculate(n - 2);
+		return fib(term-1, val+prev, val);
+	}
+	
+	public int calculate(int n) {
+		return fib(n, 1, 0);
 	}
 }
